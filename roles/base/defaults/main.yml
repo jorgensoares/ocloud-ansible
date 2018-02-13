@@ -1,2 +1,5 @@
 ---
 # defaults file for base
+packages:
+ - sudo
+ - fail2ban
