@@ -7,3 +7,10 @@
     state: installed 
     update_cache: true
   with_items: "{{ packages}}"
+
+- name: network interfaces file configuration
+  template:
+    src: interfaces.j2
+    dest: '/tmp/interfaces.conf' 
+    owner: root
+    group: root

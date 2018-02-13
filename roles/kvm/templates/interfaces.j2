@@ -1,0 +1,20 @@
+# managed by ansible
+auto lo
+iface lo inet loopback
+
+iface enp2s0 inet manual
+
+auto br0
+   {% for host in ips %}
+     {% if host == ansible_nodename %}
+       iface br0 inet static
+       address {{ ips[host] }}
+       netmask {{ netmask }}
+       geteway {{ gateway }}
+       bridge_ports enp2s0
+       bridge_fd 9
+       bridge_hello 2
+       bridge_max_age 12
+       bridge_stp off
+     {% endif %}
+   {% endfor %}
