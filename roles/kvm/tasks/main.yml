@@ -1,2 +1,9 @@
 ---
-# tasks file for kvm
+# tasks file for base
+
+- name: Install list of packages
+  apt: 
+    pkg: "{{ item }}" 
+    state: installed 
+    update_cache: true
+  with_items: "{{ packages}}"

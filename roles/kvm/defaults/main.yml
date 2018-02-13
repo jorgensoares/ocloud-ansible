@@ -1,2 +1,10 @@
 ---
-# defaults file for kvm
+# defaults file for base
+packages:
+ - qemu-kvm
+ - libvirt-bin
+ - virt-manager
+ - bridge-utils
+ - libguestfs-tools
+ - virtinst
+
