@@ -1,0 +1,14 @@
+---
+# tasks file for vms
+
+- name: get VM volumes in tier 0
+  command: "ls {{ volumes_tier0 }}"
+  register: volumes0
+  changed_when: "volumes0.rc != 0"
+ 
+- name: create disk
+  command: >
+           touch {{ volumes_tier0 }}/{{ item.key  }}.{{ item.value.type }}
+           touch /tmp/{{ item.key  }}.{{ item.value.type }}
+  when: item.key not in volumes0.stdout and item.value.tier == 0
+  with_dict: "{{ volumes }}"

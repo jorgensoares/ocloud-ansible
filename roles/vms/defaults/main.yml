@@ -1,0 +1,5 @@
+---
+# defaults file for vms
+volumes_tier0: "/images/tier0"
+volumes_tier1: "/images/tier1"
+
