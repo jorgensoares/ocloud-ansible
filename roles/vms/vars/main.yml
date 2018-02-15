@@ -6,7 +6,8 @@ guests:
   test:
     mem: 512
     cpus: 1
-    os_type: rhel7
+    os_image: debian-9
+    os_variant: debian squeeze    
     disk_type: raw
 
 volumes:
